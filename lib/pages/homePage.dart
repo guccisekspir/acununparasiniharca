@@ -55,14 +55,26 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.symmetric(horizontal: 30),
               child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: lightColor,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.white.withOpacity(0.1),
+                      offset: Offset(-5.0, -5.0),
+                      blurRadius: 6.0,
+                    ),
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.4),
+                      offset: Offset(5.0, 5.0),
+                      blurRadius: 6.0,
+                    ),
+                  ],
+                  color: Colors.greenAccent,
+                  borderRadius: BorderRadius.circular(12.0),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
                     "Kalan Para " + _servet.toString() + " ₺",
-                    style: GoogleFonts.bangers(fontSize: 32),
+                    style: GoogleFonts.bangers(fontSize: 32,color: Colors.black),
                   ),
                 ),
               ),
@@ -109,6 +121,19 @@ class _HomePageState extends State<HomePage> {
                               fit: BoxFit.fill,
                             ),
                           ),
+                        ),
+                        Text("Hamburger",style: GoogleFonts.bangers(fontSize: 20,color: Colors.white),),
+                        SizedBox(height: 15,),
+                        Text("10 ₺",style: GoogleFonts.bangers(fontSize: 20,color: Colors.greenAccent),),
+                        SizedBox(height: 15,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            IconButton(icon: Icon(Icons.add_circle,color: Colors.greenAccent,size: 35,),),
+                            Container(child: Text("0 ",style: GoogleFonts.bangers(fontSize: 25,color: Colors.white),),),
+                            IconButton(icon: Icon(Icons.do_not_disturb_on,color: Colors.redAccent,size: 35,),)
+
+                          ],
                         )
                       ],
                     ),
