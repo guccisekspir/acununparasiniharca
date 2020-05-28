@@ -1,8 +1,10 @@
 import 'package:acununparasiniharca/util/myColors.dart';
+import 'package:acununparasiniharca/util/products.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+int servet = 100;
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -11,7 +13,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   ScrollController _scrollController = ScrollController();
   ScrollController _sscrollController = ScrollController();
-  int _servet = 1000000000;
+  Products newProduct= Products(name: "Eben",price: 10);
+
 
   @override
   Widget build(BuildContext context) {
@@ -73,8 +76,9 @@ class _HomePageState extends State<HomePage> {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    "Kalan Para " + _servet.toString() + " ₺",
-                    style: GoogleFonts.bangers(fontSize: 32,color: Colors.black),
+                    "Kalan Para " + servet.toString() + " ₺",
+                    style:
+                        GoogleFonts.bangers(fontSize: 32, color: Colors.black),
                   ),
                 ),
               ),
@@ -122,17 +126,72 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                         ),
-                        Text("Hamburger",style: GoogleFonts.bangers(fontSize: 20,color: Colors.white),),
-                        SizedBox(height: 15,),
-                        Text("10 ₺",style: GoogleFonts.bangers(fontSize: 20,color: Colors.greenAccent),),
-                        SizedBox(height: 15,),
+                        Text(
+                          "Hamburger",
+                          style: GoogleFonts.bangers(
+                              fontSize: 20, color: Colors.white),
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Text(
+                          "10 ₺",
+                          style: GoogleFonts.bangers(
+                              fontSize: 20, color: Colors.greenAccent),
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            IconButton(icon: Icon(Icons.add_circle,color: Colors.greenAccent,size: 35,),),
-                            Container(child: Text("0 ",style: GoogleFonts.bangers(fontSize: 25,color: Colors.white),),),
-                            IconButton(icon: Icon(Icons.do_not_disturb_on,color: Colors.redAccent,size: 35,),)
+                            IconButton(
+                              icon: Icon(
+                                Icons.add_circle,
+                                color: Colors.greenAccent,
+                                size: 35,
+                              ),
+                              onPressed: (){
 
+
+                                setState(() {
+                                  if(!(servet-newProduct.price<0)){
+                                    newProduct.addPiece();
+                                    servet-=newProduct.price;
+                                  }else {
+                                    Scaffold.of(context).showSnackBar(SnackBar(content: Text("Yetersiz Bakiye"),backgroundColor: Colors.redAccent,));
+                                  }
+                                });
+                              },
+                            ),
+                            Container(
+                              child: Text(
+                                newProduct.piece.toString(),
+                                style: GoogleFonts.bangers(
+                                    fontSize: 25, color: Colors.white),
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: (){
+                                setState(() {
+                                  if(!(servet+newProduct.price>100)){
+                                    if(newProduct.piece>=0){
+                                      newProduct.minusPiece();
+                                      servet+=newProduct.price;
+                                    }
+
+                                  }else {
+                                    Scaffold.of(context).showSnackBar(SnackBar(content: Text("Yetersiz Bakiye"),backgroundColor: Colors.redAccent,));
+                                  }
+                                });
+
+                              },
+                              icon: Icon(
+                                Icons.do_not_disturb_on,
+                                color: Colors.redAccent,
+                                size: 35,
+                              ),
+                            )
                           ],
                         )
                       ],
@@ -147,3 +206,5 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
+
