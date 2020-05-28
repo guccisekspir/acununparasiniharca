@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     for (int i = 0; i < productsPrices.length - 1; i++) {
       Products newProducta =
-          Products(price: productsPrices[i], name: productsName[i]);
+          Products(price: productsPrices[i], name: productsName[i],image: productImages[i]);
       newProducts.add(newProducta);
     }
     return Scaffold(
@@ -98,7 +98,7 @@ class _HomePageState extends State<HomePage> {
             GridView.builder(
               controller: _sscrollController,
               shrinkWrap: true,
-              itemCount: productsName.length,
+              itemCount: productsName.length-1,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2, childAspectRatio: 0.7),
               itemBuilder: (context, index) {
@@ -130,7 +130,7 @@ class _HomePageState extends State<HomePage> {
                           child: Container(
                             height: MediaQuery.of(context).size.height / 8,
                             child: Image.asset(
-                              "assets/hambur.png",
+                              newProducts[index].image,
                               fit: BoxFit.fill,
                             ),
                           ),

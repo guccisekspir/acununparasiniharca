@@ -3,10 +3,11 @@ import 'package:flutter/cupertino.dart';
 
 class Products {
   String name;
+  String image;
   int price = 10;
   int piece = 0;
 
-  Products({this.name, this.price});
+  Products({this.name, this.price,this.image});
 
   addPiece() {
     piece++;
