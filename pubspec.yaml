@@ -51,7 +51,39 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/acunpp.jpg
-    - assets/hambur.png
+    - assets/productImage/hambur.png
+    - assets/productImage/air-min.png
+    - assets/productImage/bag-min.png
+    - assets/productImage/beats-min.png
+    - assets/productImage/bundesliga-min.png
+    - assets/productImage/chartiy-min.png
+    - assets/productImage/dino-min.png
+    - assets/productImage/f16-min.png
+    - assets/productImage/ferra-min.png
+    - assets/productImage/fire-min.png
+    - assets/productImage/gold-min.png
+    - assets/productImage/gta5-min.png
+    - assets/productImage/heli-min.png
+    - assets/productImage/iphne-min.png
+    - assets/productImage/island-min.png
+    - assets/productImage/jet-min.png
+    - assets/productImage/lambo-min.png
+    - assets/productImage/lcd-min.png
+    - assets/productImage/mac-min.png
+    - assets/productImage/passeng-min.png
+    - assets/productImage/pizza-min.png
+    - assets/productImage/pro-min.png
+    - assets/productImage/ps4-min.png
+    - assets/productImage/ring-min.png
+    - assets/productImage/rocket-min.png
+    - assets/productImage/role-min.png
+    - assets/productImage/skyscraper-min.png
+    - assets/productImage/speedb-min.png
+    - assets/productImage/stadium-min.png
+    - assets/productImage/superlig-min.png
+    - assets/productImage/tesla-min.png
+    - assets/productImage/tshirt-min.png
+    - assets/productImage/yat-min.png
 
   #   - images/a_dot_ham.jpeg
 

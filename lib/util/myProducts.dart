@@ -12,8 +12,8 @@ List<String> productsName = [
   "TELEFON",
   "DİZAYN ÇANTA",
   "MACBOOK PRO",
-  "MACPRO"
-      "JET SKI",
+  "MACPRO",
+  "JET SKI",
   "4K TV",
   "ELMAS YÜZÜK",
   "ROLEX",
@@ -26,7 +26,6 @@ List<String> productsName = [
   "PİZZA DÜKKANI",
   "ALTIN KÜLÇE",
   "STADA REKLAM",
-  "KUMSAL EVİ",
   "YAT",
   "F16",
   "GÖKDELEN",
@@ -64,7 +63,6 @@ List<int> productsPrices = [
   3400000, //pizza
   3400000, //külçe
   34000000, //stad
-  34000000, //kumsal
   78000000, //yat
   102000000, //f16
   180000000, //gökdelen

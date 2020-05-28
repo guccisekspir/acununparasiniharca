@@ -6,7 +6,7 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
-int servet = 3512660325;
+int servet = 3512660320;
 final formatCurrency = new NumberFormat.simpleCurrency();
 
 class HomePage extends StatefulWidget {
@@ -170,6 +170,7 @@ class _HomePageState extends State<HomePage> {
                                     Scaffold.of(context).showSnackBar(SnackBar(
                                       content: Text("Yetersiz Bakiye"),
                                       backgroundColor: Colors.redAccent,
+                                      duration: Duration(milliseconds: 300),
                                     ));
                                   }
                                 });
@@ -195,6 +196,7 @@ class _HomePageState extends State<HomePage> {
                                     Scaffold.of(context).showSnackBar(SnackBar(
                                       content: Text("Önce Satın Alınız!"),
                                       backgroundColor: Colors.redAccent,
+                                      duration: Duration(milliseconds: 300),
                                     ));
                                   }
                                 });
