@@ -1,5 +1,6 @@
 import 'package:acununparasiniharca/util/myColors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 
@@ -69,11 +70,42 @@ class _HomePageState extends State<HomePage> {
               itemCount: 10,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
 
-              crossAxisCount: 2
+              crossAxisCount: 2,
+                childAspectRatio: 0.7
             ), itemBuilder: (context,index){
               return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Card(child: Text(index.toString()),),
+                padding: const EdgeInsets.all(16.0),
+                child: Container(
+                  width: 100,
+                  height: 100,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.white.withOpacity(0.1),
+                        offset: Offset(-5.0, -5.0),
+                        blurRadius: 6.0,
+                      ),
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.4),
+                        offset: Offset(5.0, 5.0),
+                        blurRadius: 6.0,
+                      ),
+                    ],
+                    color: Color(0xFF292D32),
+                    borderRadius: BorderRadius.circular(12.0),
+                  ),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 4),
+                        child: Container(
+                          height:MediaQuery.of(context).size.height/8,
+                          child: Image.asset("assets/hambur.png",fit: BoxFit.fill,),),
+                      )
+                    ],
+                  ),
+                ),
+
               );
             },)
           ],
