@@ -8,6 +8,7 @@ import 'package:intl/intl.dart';
 
 int servet = 3512660325;
 final formatCurrency = new NumberFormat.simpleCurrency();
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -16,15 +17,14 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   ScrollController _scrollController = ScrollController();
   ScrollController _sscrollController = ScrollController();
-  Products newProduct= Products(name: "Eben",price: 10);
-  List<Products> newProducts=[];
-
-
+  Products newProduct = Products(name: "Eben", price: 10);
+  List<Products> newProducts = [];
 
   @override
   Widget build(BuildContext context) {
-    for(int i=0;i<productsPrices.length-1;i++){
-      Products newProducta=Products(price: productsPrices[i],name: productsName[i]);
+    for (int i = 0; i < productsPrices.length - 1; i++) {
+      Products newProducta =
+          Products(price: productsPrices[i], name: productsName[i]);
       newProducts.add(newProducta);
     }
     return Scaffold(
@@ -144,7 +144,7 @@ class _HomePageState extends State<HomePage> {
                           height: 15,
                         ),
                         Text(
-                          newProducts[index].price.toString()+" ₺",
+                          newProducts[index].price.toString() + " ₺",
                           style: GoogleFonts.bangers(
                               fontSize: 20, color: Colors.greenAccent),
                         ),
@@ -160,15 +160,17 @@ class _HomePageState extends State<HomePage> {
                                 color: Colors.greenAccent,
                                 size: 35,
                               ),
-                              onPressed: (){
-
-
+                              onPressed: () {
                                 setState(() {
-                                  if(!(servet-newProducts[index].price<0)){
+                                  if (!(servet - newProducts[index].price <
+                                      0)) {
                                     newProducts[index].addPiece();
-                                    servet-=newProducts[index].price;
-                                  }else {
-                                    Scaffold.of(context).showSnackBar(SnackBar(content: Text("Yetersiz Bakiye"),backgroundColor: Colors.redAccent,));
+                                    servet -= newProducts[index].price;
+                                  } else {
+                                    Scaffold.of(context).showSnackBar(SnackBar(
+                                      content: Text("Yetersiz Bakiye"),
+                                      backgroundColor: Colors.redAccent,
+                                    ));
                                   }
                                 });
                               },
@@ -181,19 +183,21 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                             IconButton(
-                              onPressed: (){
+                              onPressed: () {
                                 setState(() {
-                                  if(!(servet+newProducts[index].price>100)){
-                                    if(newProducts[index].piece>=0){
+                                  if (!(servet + newProducts[index].price >
+                                      3512660325)) {
+                                    if (newProducts[index].piece >= 0) {
                                       newProducts[index].minusPiece();
-                                      servet+=newProducts[index].price;
+                                      servet += newProducts[index].price;
                                     }
-
-                                  }else {
-                                    Scaffold.of(context).showSnackBar(SnackBar(content: Text("Yetersiz Bakiye"),backgroundColor: Colors.redAccent,));
+                                  } else {
+                                    Scaffold.of(context).showSnackBar(SnackBar(
+                                      content: Text("Önce Satın Alınız!"),
+                                      backgroundColor: Colors.redAccent,
+                                    ));
                                   }
                                 });
-
                               },
                               icon: Icon(
                                 Icons.do_not_disturb_on,
@@ -215,5 +219,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-
