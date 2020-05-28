@@ -1,3 +1,4 @@
+import 'package:acununparasiniharca/util/myColors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -16,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0XFF2c3848),
+      backgroundColor: backGroundColor,
 
       body: SingleChildScrollView(
         controller: _scrollController,
@@ -41,7 +42,7 @@ class _HomePageState extends State<HomePage> {
                     alignment: Alignment.bottomCenter,
                     child: CircleAvatar(
                       backgroundImage: AssetImage("assets/acunpp.jpg"),
-                      radius: 70, //TODO radiusları mediaquerye göre yap
+                      radius: 70,
                       backgroundColor: Theme.of(context).accentColor,
                     ),
                   ),
@@ -54,9 +55,8 @@ class _HomePageState extends State<HomePage> {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: Colors.limeAccent,
+                  color: lightColor,
                 ),
-
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text("Kalan Para "+_servet.toString()+" ₺",style: GoogleFonts.bangers(fontSize: 32),),
