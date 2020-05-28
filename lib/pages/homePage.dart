@@ -1,4 +1,5 @@
 import 'package:acununparasiniharca/util/myColors.dart';
+import 'package:acununparasiniharca/util/myProducts.dart';
 import 'package:acununparasiniharca/util/products.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
@@ -127,7 +128,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         Text(
-                          "Hamburger",
+                          productsName[index],
                           style: GoogleFonts.bangers(
                               fontSize: 20, color: Colors.white),
                         ),
