@@ -1,12 +1,13 @@
 List<String> productsName=[
   "HAMBURGER",
-  "KAHVE",
+  "SİYAH TSHİRT(ucuz)",
   "OYUN",
   "BAĞIŞ",
   "KULAKLIK",
   "AİR JORDANS",
-  "TELEFON",
+  "SİYAH TSHİRT",
   "KONSOL",
+  "TELEFON",
   "DİZAYN ÇANTA",
   "MACBOOK PRO",
   "MACPRO"
@@ -28,16 +29,47 @@ List<String> productsName=[
   "F16",
   "GÖKDELEN",
   "ROKET",
+  "AVRUPA 2.LİG TAKIMI",
+  "SÜPER LİG TAKIMI",
   "YOLCU UÇAĞI",
-  "YER MANTARI",
   "DİNAZOR FOSİLİ",
   "ADA",
-  "MONA LISA",
-  "GEZİ GEMİSİ",
-  "NBA TAKIMI",
-  "SÜPER LİG TAKIMI"
+];
 
-
-
-
+List<int> productsPrices=[
+  30,
+  40,
+  50,
+  100,
+  1000,
+  2000,
+  3000,
+  5000,
+  12000,
+  15000,
+  17000,
+  47000,//macpor
+  54000,//jetski
+  70000,//4k
+  90000,//elmas
+  100000,//rolex
+  200000,//hız teknesi
+  500000,//tesla
+  1200000,//helikopter
+  1400000,//ferre
+  1400000,//lambo
+  1700000,//itafai
+  3400000,//pizza
+  3400000,//külçe
+  34000000,//stad
+  34000000,//kumsal
+  78000000,//yat
+  102000000,//f16
+  180000000,//gökdelen
+  409000000,
+  452000000,//roket
+  600000000,
+  1000000000,//yolcuucagı
+  1200000000,//dinazor
+  2000000000,//ada
 ];

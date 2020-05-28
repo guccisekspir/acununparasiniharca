@@ -4,8 +4,9 @@ import 'package:acununparasiniharca/util/products.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 
-int servet = 100;
+int servet = 3512660325;
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -90,7 +91,7 @@ class _HomePageState extends State<HomePage> {
             GridView.builder(
               controller: _sscrollController,
               shrinkWrap: true,
-              itemCount: 10,
+              itemCount: productsName.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2, childAspectRatio: 0.7),
               itemBuilder: (context, index) {
@@ -136,7 +137,7 @@ class _HomePageState extends State<HomePage> {
                           height: 15,
                         ),
                         Text(
-                          "10 ₺",
+                          productsPrices[index].toString()+" ₺",
                           style: GoogleFonts.bangers(
                               fontSize: 20, color: Colors.greenAccent),
                         ),
