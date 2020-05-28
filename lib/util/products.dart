@@ -14,7 +14,6 @@ class Products{
 
   addPiece(){
     piece++;
-    debugPrint(piece.toString());
 
   }
 

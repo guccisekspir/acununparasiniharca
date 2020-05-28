@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 int servet = 3512660325;
+final formatCurrency = new NumberFormat.simpleCurrency();
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -16,10 +17,16 @@ class _HomePageState extends State<HomePage> {
   ScrollController _scrollController = ScrollController();
   ScrollController _sscrollController = ScrollController();
   Products newProduct= Products(name: "Eben",price: 10);
+  List<Products> newProducts=[];
+
 
 
   @override
   Widget build(BuildContext context) {
+    for(int i=0;i<productsPrices.length-1;i++){
+      Products newProducta=Products(price: productsPrices[i],name: productsName[i]);
+      newProducts.add(newProducta);
+    }
     return Scaffold(
       backgroundColor: backGroundColor,
       body: SingleChildScrollView(
@@ -78,9 +85,9 @@ class _HomePageState extends State<HomePage> {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    "Kalan Para " + servet.toString() + " ₺",
+                    "Kalan Para " + formatCurrency.format(servet) + " ₺",
                     style:
-                        GoogleFonts.bangers(fontSize: 32, color: Colors.black),
+                        GoogleFonts.bangers(fontSize: 26, color: Colors.black),
                   ),
                 ),
               ),
@@ -137,7 +144,7 @@ class _HomePageState extends State<HomePage> {
                           height: 15,
                         ),
                         Text(
-                          productsPrices[index].toString()+" ₺",
+                          newProducts[index].price.toString()+" ₺",
                           style: GoogleFonts.bangers(
                               fontSize: 20, color: Colors.greenAccent),
                         ),
@@ -157,9 +164,9 @@ class _HomePageState extends State<HomePage> {
 
 
                                 setState(() {
-                                  if(!(servet-newProduct.price<0)){
-                                    newProduct.addPiece();
-                                    servet-=newProduct.price;
+                                  if(!(servet-newProducts[index].price<0)){
+                                    newProducts[index].addPiece();
+                                    servet-=newProducts[index].price;
                                   }else {
                                     Scaffold.of(context).showSnackBar(SnackBar(content: Text("Yetersiz Bakiye"),backgroundColor: Colors.redAccent,));
                                   }
@@ -168,7 +175,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                             Container(
                               child: Text(
-                                newProduct.piece.toString(),
+                                newProducts[index].piece.toString(),
                                 style: GoogleFonts.bangers(
                                     fontSize: 25, color: Colors.white),
                               ),
@@ -176,10 +183,10 @@ class _HomePageState extends State<HomePage> {
                             IconButton(
                               onPressed: (){
                                 setState(() {
-                                  if(!(servet+newProduct.price>100)){
-                                    if(newProduct.piece>=0){
-                                      newProduct.minusPiece();
-                                      servet+=newProduct.price;
+                                  if(!(servet+newProducts[index].price>100)){
+                                    if(newProducts[index].piece>=0){
+                                      newProducts[index].minusPiece();
+                                      servet+=newProducts[index].price;
                                     }
 
                                   }else {

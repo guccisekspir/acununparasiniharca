@@ -1,3 +1,5 @@
+import 'package:acununparasiniharca/util/products.dart';
+
 List<String> productsName=[
   "HAMBURGER",
   "SİYAH TSHİRT(ucuz)",
@@ -72,4 +74,5 @@ List<int> productsPrices=[
   1000000000,//yolcuucagı
   1200000000,//dinazor
   2000000000,//ada
+
 ];
