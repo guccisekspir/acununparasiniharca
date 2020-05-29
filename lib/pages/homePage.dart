@@ -1,3 +1,4 @@
+import 'package:acununparasiniharca/pages/summaryFile.dart';
 import 'package:acununparasiniharca/util/myColors.dart';
 import 'package:acununparasiniharca/util/myProducts.dart';
 import 'package:acununparasiniharca/util/products.dart';
@@ -43,7 +44,10 @@ class _HomePageState extends State<HomePage> {
             tittle: 'Özeti Gör',
             desc: 'İşleminiz bitti mi ? ',
             btnCancelOnPress: () {},
-            btnOkOnPress: () {},
+            btnOkOnPress: () {
+
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>SummaryPage(fullList: newProducts,)));
+            },
           )..show();
 
         },
