@@ -69,34 +69,53 @@ class _HomePageState extends State<HomePage> {
       newProducts.add(newProducta);
     }
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          AwesomeDialog(
-            context: context,
-            dialogType: DialogType.INFO,
-            animType: AnimType.BOTTOMSLIDE,
-            btnCancelText: "İptal",
-            btnOkText: "Bitti",
-            tittle: 'Özeti Gör',
-            desc: 'İşleminiz bitti mi ? ',
-            btnCancelOnPress: () {},
-            btnOkOnPress: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => SummaryPage(
-                            fullList: newProducts,
-                          )));
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            heroTag: "btn1",
+            child: Icon(Icons.restore_from_trash),
+            mini: true,
+            backgroundColor: Colors.red,
+            onPressed: (){
+              setState(() {
+                for(var i in newProducts){
+                  i.piece=0;
+                }
+              });
             },
-          )..show();
-        },
-        child: Icon(
-          Icons.done_outline,
-          color: Colors.black,
-          size: 33,
-        ),
-        backgroundColor: Colors.greenAccent,
-        elevation: 20,
+          ),
+          FloatingActionButton(
+            heroTag: "btn2",
+            onPressed: () {
+              AwesomeDialog(
+                context: context,
+                dialogType: DialogType.INFO,
+                animType: AnimType.BOTTOMSLIDE,
+                btnCancelText: "İptal",
+                btnOkText: "Bitti",
+                tittle: 'Özeti Gör',
+                desc: 'İşleminiz bitti mi ? ',
+                btnCancelOnPress: () {},
+                btnOkOnPress: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => SummaryPage(
+                                fullList: newProducts,
+                              )));
+                },
+              )..show();
+            },
+            child: Icon(
+              Icons.done_outline,
+              color: Colors.black,
+              size: 33,
+            ),
+            backgroundColor: Colors.greenAccent,
+            elevation: 20,
+          ),
+        ],
       ),
       backgroundColor: backGroundColor,
       body: SingleChildScrollView(
@@ -162,7 +181,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 100, right: 100, top: 10),
+              padding: const EdgeInsets.only(left: 100, right: 100, top: 20),
               child: GestureDetector(
                 onTap: () {
                   debugPrint("tabbed");
@@ -190,7 +209,7 @@ class _HomePageState extends State<HomePage> {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
-                      "300 Milyon Ekle",
+                      "300 MİLYON Ekle",
                       style: GoogleFonts.bangers(
                           fontSize: 26, color: Colors.black),
                     ),

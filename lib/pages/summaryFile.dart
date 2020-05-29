@@ -204,7 +204,7 @@ class _SummaryPageState extends State<SummaryPage> {
                           childAspectRatio: 3.2,
                           mainAxisSpacing: 10,
                           crossAxisSpacing: 5,
-                          crossAxisCount: 3),
+                          crossAxisCount: 2),
                       itemBuilder: (context, index) {
                         return badgeMaker(purchasedList[index]);
                       }),
@@ -221,6 +221,7 @@ class _SummaryPageState extends State<SummaryPage> {
     return FittedBox(
       child: Container(
         decoration: BoxDecoration(
+            border: Border.all(color: Colors.deepPurpleAccent,width: 3),
             gradient: randomGradient(), borderRadius: BorderRadius.circular(20)),
         child: Row(
           mainAxisSize: MainAxisSize.min,
