@@ -172,16 +172,16 @@ class _HomePageState extends State<HomePage> {
                               fontSize: 20, color: Colors.white),
                         ),
                         SizedBox(
-                          height: 15,
+                          height: 5,
                         ),
                         Text(
                           formatCurrency.format(newProducts[index].price) +
                               " ₺",
                           style: GoogleFonts.bangers(
-                              fontSize: 18, color: Colors.greenAccent),
+                              fontSize: 14, color: Colors.greenAccent),
                         ),
                         SizedBox(
-                          height: 11,
+                          height: 5,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
