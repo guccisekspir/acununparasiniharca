@@ -88,20 +88,7 @@ class _SummaryPageState extends State<SummaryPage> {
 
   Widget badgeMaker(List<Products> purchasedList) {
     return FittedBox(
-      child: Container(
-        decoration: BoxDecoration(
-            gradient: randomGradientt, borderRadius: BorderRadius.circular(20)),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            badgeIcons[buldugumindex],
-            Text(
-              badgeNames[buldugumindex],
-              style: GoogleFonts.righteous(fontSize: 10, color: Colors.black),
-            )
-          ],
-        ),
-      ),
+
     );
   }
 }
