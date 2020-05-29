@@ -1,4 +1,5 @@
 import 'package:acununparasiniharca/pages/homePage.dart';
+import 'package:flare_splash_screen/flare_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -18,7 +19,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home:HomePage(),
+      home:SplashScreen.navigate(
+        name: 'assets/splash.flr',
+        fit: BoxFit.fill,
+        next: (_) => HomePage(),
+        until: () => Future.delayed(Duration(seconds: 4)),
+        startAnimation: 'Untitled',
+      ),
     );
   }
 }

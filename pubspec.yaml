@@ -40,6 +40,8 @@ dependencies:
   path_provider: ^1.5.1
   firebase_admob: ^0.9.3+2
   animations: ^1.0.0+5
+  flare_flutter: ^2.0.3
+  flare_splash_screen: ^3.0.1
 
 
 dev_dependencies:
@@ -93,6 +95,7 @@ flutter:
     - assets/productImage/tesla-min.png
     - assets/productImage/tshirt-min.png
     - assets/productImage/yat-min.png
+    - assets/splash.flr
 
   #   - images/a_dot_ham.jpeg
 
