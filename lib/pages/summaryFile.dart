@@ -78,7 +78,7 @@ class _SummaryPageState extends State<SummaryPage> {
         }, label: Row(
           children: [
             Icon(LineAwesomeIcons.instagram,),
-            Text(isSS?"İnstagramda paylaş":"@sekspirdev",style: GoogleFonts.bangers(),),
+            Text(isSS?"İnstagramda paylaş":"@sekspirdev",style: GoogleFonts.bangers(fontSize: MediaQuery.of(context).size.height/45),),
           ],
         ),
           backgroundColor: Colors.red,
@@ -168,8 +168,8 @@ class _SummaryPageState extends State<SummaryPage> {
                     Align(
                       alignment: Alignment.bottomCenter,
                       child: Container(
-                        width: 160,
-                        height: 160,
+                        width: MediaQuery.of(context).size.height/4.5,
+                        height: MediaQuery.of(context).size.height/4.5,
                         decoration: BoxDecoration(
                             gradient: randomGradient(),
                             color: Colors.limeAccent,
@@ -180,15 +180,15 @@ class _SummaryPageState extends State<SummaryPage> {
                       alignment: Alignment.bottomCenter,
                       child: CircleAvatar(
                         backgroundImage: AssetImage("assets/acunpp.jpg"),
-                        radius: 70,
+                        radius: MediaQuery.of(context).size.height/10,
                         backgroundColor: Theme.of(context).accentColor,
                       ),
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: 35,),
-              GradientText("ACUNUN PARASIYLA ALDIĞIM ŞEYLER",gradient: randomGradient(),style: GoogleFonts.bangers(color: Colors.white,fontSize: 23),textAlign: TextAlign.center,),
+              SizedBox(height: MediaQuery.of(context).size.height/30,),
+              GradientText("ACUNUN PARASIYLA ALDIĞIM ŞEYLER",gradient: randomGradient(),style: GoogleFonts.bangers(color: Colors.white,fontSize: MediaQuery.of(context).size.height/25),textAlign: TextAlign.center,),
               SizedBox(height: 35,),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 40),

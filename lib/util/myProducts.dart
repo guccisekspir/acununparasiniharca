@@ -2,7 +2,7 @@ import 'package:acununparasiniharca/util/products.dart';
 
 List<String> productsName = [
   "HAMBURGER ",
-  "SİYAH TSHİRT(ucuz) ",
+  "UCUZ TSHİRT ",
   "OYUN ",
   "BAĞIŞ ",
   "KULAKLIK ",
@@ -11,7 +11,7 @@ List<String> productsName = [
   "KONSOL ",
   "TELEFON" ,
   "DİZAYN ÇANTA ",
-  "MACBOOK PRO ",
+  "MACBOOK ",
   "MACPRO ",
   "JET SKI ",
   "4K TV ",
@@ -30,8 +30,8 @@ List<String> productsName = [
   "F16 ",
   "GÖKDELEN ",
   "ROKET ",
-  "AVRUPA 2.LİG TAKIMI ",
-  "SÜPER LİG TAKIMI ",
+  "AVRUPA 2.LİG ",
+  "SÜPERLİG TAKIMI ",
   "YOLCU UÇAĞI ",
   "DİNAZOR FOSİLİ ",
   "ADA ",

@@ -176,7 +176,7 @@ class _HomePageState extends State<HomePage> {
                   child: Text(
                     "Kalan Para " + formatCurrency.format(servet) + " ₺",textAlign: TextAlign.center,
                     style:
-                        GoogleFonts.bangers(fontSize: 24, color: Colors.black),
+                        GoogleFonts.bangers(fontSize: MediaQuery.of(context).size.height/37, color: Colors.black),
                   ),
                 ),
               ),
@@ -185,7 +185,6 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.only(left: 100, right: 100, top: 20),
               child: GestureDetector(
                 onTap: () {
-                  debugPrint("tabbed");
                   RewardedVideoAd.instance.load(
                       adUnitId: RewardedVideoAd.testAdUnitId,
                       targetingInfo: AdMobFunc.targetingInfo);
@@ -210,9 +209,9 @@ class _HomePageState extends State<HomePage> {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
-                      "300 MİLYON Ekle",
+                      "300 MİLYON Ekle",textAlign: TextAlign.center,
                       style: GoogleFonts.bangers(
-                          fontSize: 26, color: Colors.black),
+                          fontSize: MediaQuery.of(context).size.height/30, color: Colors.black),
                     ),
                   ),
                 ),
@@ -261,10 +260,13 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                         ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height/40,//between image name
+                        ),
                         Text(
                           productsName[index],
                           style: GoogleFonts.bangers(
-                              fontSize: 20, color: Colors.white),
+                              fontSize: MediaQuery.of(context).size.height/40, color: Colors.white),
                         ),
                         SizedBox(
                           height: 5,
@@ -273,10 +275,10 @@ class _HomePageState extends State<HomePage> {
                           formatCurrency.format(newProducts[index].price) +
                               " ₺",
                           style: GoogleFonts.bangers(
-                              fontSize: 14, color: Colors.greenAccent),
+                              fontSize: MediaQuery.of(context).size.height/45, color: Colors.greenAccent),
                         ),
                         SizedBox(
-                          height: 5,
+                          height: MediaQuery.of(context).size.height/15, //between name buttons
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
