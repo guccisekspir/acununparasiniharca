@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:acununparasiniharca/util/admob_func.dart';
 import 'package:acununparasiniharca/util/products.dart';
 import 'package:acununparasiniharca/util/randomGradient.dart';
+import 'package:animations/animations.dart';
 import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -89,7 +90,77 @@ class _SummaryPageState extends State<SummaryPage> {
           controller: _scrollController,
           child: Column(
             children: [
-              SizedBox(height: 10,),
+              SafeArea(
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: FlatButton(
+                    child: CircleAvatar(
+                        radius: 25,
+                        backgroundColor: Colors.black,
+                        child: Icon(
+                          Icons.arrow_back,
+                          size: 30,
+                          color: Colors.limeAccent,
+                        )),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                ),
+              ),
+              OpenContainer(
+                closedBuilder: (BuildContext buildContext,
+                    VoidCallback voidCallback) {
+                  return Align(
+                    alignment: Alignment.topRight,
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 25),
+                      child: GestureDetector(
+                          onTap: voidCallback,
+                          child: Icon(
+                            Icons.info_outline,
+                            color: Colors.limeAccent,
+                          )),
+                    ),
+                  );
+                },
+                openBuilder: (BuildContext buildContext,
+                    VoidCallback voidCallback) {
+                  return SingleChildScrollView(
+                    child: Container(
+                        color: Colors.black,
+                        child: Column(
+                          children: [
+                            SafeArea(
+                              child: Align(
+                                alignment: Alignment.topLeft,
+                                child: FlatButton(
+                                  child: CircleAvatar(
+                                      radius: 25,
+                                      backgroundColor: Colors.black,
+                                      child: Icon(
+                                        Icons.arrow_back,
+                                        size: 30,
+                                        color: Colors.limeAccent,
+                                      )),
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                ),
+                              ),
+                            ),
+                            Text("Privacy Policy"),
+                            Text(
+                              myPrivacyPolicy,
+                              style: TextStyle(
+                                  color: Colors.limeAccent),
+                            ),
+                          ],
+                        )),
+                  );
+                },
+                closedColor: Colors.transparent,
+              ),
               Container(
                 child: Stack(
                   alignment: AlignmentDirectional.center,
