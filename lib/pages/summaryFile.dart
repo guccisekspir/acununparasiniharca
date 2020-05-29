@@ -58,7 +58,7 @@ class _SummaryPageState extends State<SummaryPage> {
     return Screenshot(
       controller: screenshotController,
       child: Scaffold(
-        floatingActionButton: FloatingActionButton.extended(onPressed: (){
+        floatingActionButton: isSS?FloatingActionButton.extended(onPressed: (){
           setState(() {
             isSS=false;
           });
@@ -84,7 +84,7 @@ class _SummaryPageState extends State<SummaryPage> {
           backgroundColor: Colors.red,
 
 
-        ),
+        ):SizedBox(width: 0,height: 0,),
         backgroundColor: Colors.black,
         body: SingleChildScrollView(
           controller: _scrollController,

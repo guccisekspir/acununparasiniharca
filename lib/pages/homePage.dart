@@ -82,6 +82,7 @@ class _HomePageState extends State<HomePage> {
                 for(var i in newProducts){
                   i.piece=0;
                 }
+                servet = 3512660320;
               });
             },
           ),
@@ -173,9 +174,9 @@ class _HomePageState extends State<HomePage> {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    "Kalan Para " + formatCurrency.format(servet) + " ₺",
+                    "Kalan Para " + formatCurrency.format(servet) + " ₺",textAlign: TextAlign.center,
                     style:
-                        GoogleFonts.bangers(fontSize: 26, color: Colors.black),
+                        GoogleFonts.bangers(fontSize: 24, color: Colors.black),
                   ),
                 ),
               ),
