@@ -1,6 +1,7 @@
 import 'package:acununparasiniharca/util/myColors.dart';
 import 'package:acununparasiniharca/util/myProducts.dart';
 import 'package:acununparasiniharca/util/products.dart';
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -23,11 +24,37 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     for (int i = 0; i < productsPrices.length - 1; i++) {
-      Products newProducta =
-          Products(price: productsPrices[i], name: productsName[i],image: productImages[i]);
+      Products newProducta = Products(
+          price: productsPrices[i],
+          name: productsName[i],
+          image: productImages[i]);
       newProducts.add(newProducta);
     }
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+
+          AwesomeDialog(
+            context: context,
+            dialogType: DialogType.INFO,
+            animType: AnimType.BOTTOMSLIDE,
+            btnCancelText: "İptal",
+            btnOkText: "Bitti",
+            tittle: 'Özeti Gör',
+            desc: 'İşleminiz bitti mi ? ',
+            btnCancelOnPress: () {},
+            btnOkOnPress: () {},
+          )..show();
+
+        },
+        child: Icon(
+          Icons.done_outline,
+          color: Colors.black,
+          size: 33,
+        ),
+        backgroundColor: Colors.greenAccent,
+        elevation: 20,
+      ),
       backgroundColor: backGroundColor,
       body: SingleChildScrollView(
         controller: _scrollController,
@@ -98,7 +125,7 @@ class _HomePageState extends State<HomePage> {
             GridView.builder(
               controller: _sscrollController,
               shrinkWrap: true,
-              itemCount: productsName.length-1,
+              itemCount: productsName.length - 1,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2, childAspectRatio: 0.7),
               itemBuilder: (context, index) {
@@ -144,12 +171,13 @@ class _HomePageState extends State<HomePage> {
                           height: 15,
                         ),
                         Text(
-                          newProducts[index].price.toString() + " ₺",
+                          formatCurrency.format(newProducts[index].price) +
+                              " ₺",
                           style: GoogleFonts.bangers(
-                              fontSize: 20, color: Colors.greenAccent),
+                              fontSize: 18, color: Colors.greenAccent),
                         ),
                         SizedBox(
-                          height: 15,
+                          height: 11,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -32,6 +32,7 @@ dependencies:
   flutter_neumorphic: ^2.2.2
   neumorphic: ^0.3.0
   intl: ^0.16.1
+  awesome_dialog: ^1.0.1
 
 dev_dependencies:
   flutter_test:
