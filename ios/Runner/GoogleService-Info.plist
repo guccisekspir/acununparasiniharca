@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>390376718958-c7v16hcg5c2jj76pujl7q41nlpuml7j0.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.390376718958-c7v16hcg5c2jj76pujl7q41nlpuml7j0</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAIIrvRp1q10RCcHYvwKIVid6b1iwwh3S8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>390376718958</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.sekspir.acununparasiniharca</string>
+	<key>PROJECT_ID</key>
+	<string>acununparasi</string>
+	<key>STORAGE_BUCKET</key>
+	<string>acununparasi.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:390376718958:ios:d94dd442796b114bed5c7f</string>
+	<key>DATABASE_URL</key>
+	<string>https://acununparasi.firebaseio.com</string>
+</dict>
+</plist>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "390376718958",
+    "firebase_url": "https://acununparasi.firebaseio.com",
+    "project_id": "acununparasi",
+    "storage_bucket": "acununparasi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:390376718958:android:c0da79e2cbb4baffed5c7f",
+        "android_client_info": {
+          "package_name": "com.sekspir.acununparasiniharca"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "390376718958-vc2pr6vhv073gaia6tntibufg4t4m1jp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdVAQ5gFFRPb0UaaSNbzIb6xkPANgyPDs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "390376718958-vc2pr6vhv073gaia6tntibufg4t4m1jp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -131,7 +131,7 @@ class _HomePageState extends State<HomePage> {
               shrinkWrap: true,
               itemCount: productsName.length - 1,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, childAspectRatio: 0.7),
+                  crossAxisCount: 2, childAspectRatio: 0.6),
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.all(16.0),

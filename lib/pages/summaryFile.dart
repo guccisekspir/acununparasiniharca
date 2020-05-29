@@ -69,6 +69,7 @@ class _SummaryPageState extends State<SummaryPage> {
         ),
           backgroundColor: Colors.red,
 
+
         ),
         backgroundColor: Colors.black,
         body: SingleChildScrollView(
@@ -103,10 +104,10 @@ class _SummaryPageState extends State<SummaryPage> {
                 ),
               ),
               SizedBox(height: 35,),
-              GradientText("ACUNUN PARASIYLA ALDIĞIM ŞEYLER",gradient: randomGradient(),style: GoogleFonts.bangers(color: Colors.white,fontSize: 25),),
+              GradientText("ACUNUN PARASIYLA ALDIĞIM ŞEYLER",gradient: randomGradient(),style: GoogleFonts.bangers(color: Colors.white,fontSize: 23),textAlign: TextAlign.center,),
               SizedBox(height: 35,),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 60),
+                padding: const EdgeInsets.symmetric(horizontal: 40),
                 child: Container(
                   child: GridView.builder(
                     controller: _scrollController2,
@@ -119,7 +120,7 @@ class _SummaryPageState extends State<SummaryPage> {
                           childAspectRatio: 3.2,
                           mainAxisSpacing: 10,
                           crossAxisSpacing: 5,
-                          crossAxisCount: 2),
+                          crossAxisCount: 3),
                       itemBuilder: (context, index) {
                         return badgeMaker(purchasedList[index]);
                       }),
