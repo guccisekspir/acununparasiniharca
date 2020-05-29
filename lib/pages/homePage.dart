@@ -2,6 +2,7 @@ import 'package:acununparasiniharca/pages/summaryFile.dart';
 import 'package:acununparasiniharca/util/myColors.dart';
 import 'package:acununparasiniharca/util/myProducts.dart';
 import 'package:acununparasiniharca/util/products.dart';
+import 'package:acununparasiniharca/util/randomGradient.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
@@ -74,8 +75,7 @@ class _HomePageState extends State<HomePage> {
                       width: 160,
                       height: 160,
                       decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                              colors: [Colors.limeAccent, Colors.cyanAccent]),
+                          gradient: randomGradient(),
                           color: Colors.limeAccent,
                           shape: BoxShape.circle),
                     ),
