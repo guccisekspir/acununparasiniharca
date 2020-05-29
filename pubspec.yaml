@@ -38,6 +38,7 @@ dependencies:
   social_share: ^2.0.4
   line_awesome_icons: ^1.0.4+2
   path_provider: ^1.5.1
+  firebase_admob: ^0.9.3+2
 
 dev_dependencies:
   flutter_test:

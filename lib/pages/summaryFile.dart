@@ -1,7 +1,9 @@
 import 'dart:io';
 
+import 'package:acununparasiniharca/util/admob_func.dart';
 import 'package:acununparasiniharca/util/products.dart';
 import 'package:acununparasiniharca/util/randomGradient.dart';
+import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gradient_text/gradient_text.dart';
@@ -26,14 +28,25 @@ class _SummaryPageState extends State<SummaryPage> {
   ScreenshotController screenshotController = ScreenshotController();
   File sharingPhoto;
   bool isSS=true;
+  InterstitialAd interstitialAd;
   @override
   void initState() {
+    AdMobFunc.adMobInitialize();
+    interstitialAd=AdMobFunc.buildInters();
+    interstitialAd..load()..show();
 
     for(var i in widget.fullList){
       if(i.piece>0)purchasedList.add(i);
     }
 
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    interstitialAd.dispose();
+    super.dispose();
   }
 
 

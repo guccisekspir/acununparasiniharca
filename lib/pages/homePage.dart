@@ -1,9 +1,11 @@
 import 'package:acununparasiniharca/pages/summaryFile.dart';
+import 'package:acununparasiniharca/util/admob_func.dart';
 import 'package:acununparasiniharca/util/myColors.dart';
 import 'package:acununparasiniharca/util/myProducts.dart';
 import 'package:acununparasiniharca/util/products.dart';
 import 'package:acununparasiniharca/util/randomGradient.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -24,6 +26,40 @@ class _HomePageState extends State<HomePage> {
   List<Products> newProducts = [];
 
   @override
+  void initState() {
+    // TODO: implement initState
+    RewardedVideoAd.instance.listener =
+        (RewardedVideoAdEvent event, {String rewardType, int rewardAmount}) {
+      if (event == RewardedVideoAdEvent.rewarded) {
+        setState(() {
+          servet += 300000000;
+        });
+        print(" *************** ODULLU REKLAM ***** ODUL VER");
+        odulluReklamLoad();
+      } else if (event == RewardedVideoAdEvent.loaded) {
+        print(
+            " *************** ODULLU REKLAM ***** REKLAM yuklendı ve gosterilecek");
+        RewardedVideoAd.instance.show();
+      } else if (event == RewardedVideoAdEvent.closed) {
+        print(" *************** ODULLU REKLAM ***** REKLAM KAPATILDI");
+      } else if (event == RewardedVideoAdEvent.failedToLoad) {
+        print(" *************** ODULLU REKLAM ***** REKLAM BULUNAMADI");
+        odulluReklamLoad();
+      } else if (event == RewardedVideoAdEvent.completed) {
+        print(" *************** ODULLU REKLAM ***** COMPLETED");
+      }
+    };
+
+    super.initState();
+  }
+
+  void odulluReklamLoad() {
+    RewardedVideoAd.instance.load(
+        adUnitId: RewardedVideoAd.testAdUnitId,
+        targetingInfo: AdMobFunc.targetingInfo);
+  }
+
+  @override
   Widget build(BuildContext context) {
     for (int i = 0; i < productsPrices.length - 1; i++) {
       Products newProducta = Products(
@@ -34,8 +70,7 @@ class _HomePageState extends State<HomePage> {
     }
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: (){
-
+        onPressed: () {
           AwesomeDialog(
             context: context,
             dialogType: DialogType.INFO,
@@ -46,11 +81,14 @@ class _HomePageState extends State<HomePage> {
             desc: 'İşleminiz bitti mi ? ',
             btnCancelOnPress: () {},
             btnOkOnPress: () {
-
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>SummaryPage(fullList: newProducts,)));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => SummaryPage(
+                            fullList: newProducts,
+                          )));
             },
           )..show();
-
         },
         child: Icon(
           Icons.done_outline,
@@ -119,6 +157,43 @@ class _HomePageState extends State<HomePage> {
                     "Kalan Para " + formatCurrency.format(servet) + " ₺",
                     style:
                         GoogleFonts.bangers(fontSize: 26, color: Colors.black),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 100, right: 100, top: 10),
+              child: GestureDetector(
+                onTap: () {
+                  debugPrint("tabbed");
+                  RewardedVideoAd.instance.load(
+                      adUnitId: RewardedVideoAd.testAdUnitId,
+                      targetingInfo: AdMobFunc.targetingInfo);
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.white.withOpacity(0.1),
+                        offset: Offset(-5.0, -5.0),
+                        blurRadius: 6.0,
+                      ),
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.4),
+                        offset: Offset(5.0, 5.0),
+                        blurRadius: 6.0,
+                      ),
+                    ],
+                    color: Colors.blueAccent,
+                    borderRadius: BorderRadius.circular(12.0),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "300 Milyon Ekle",
+                      style: GoogleFonts.bangers(
+                          fontSize: 26, color: Colors.black),
+                    ),
                   ),
                 ),
               ),
