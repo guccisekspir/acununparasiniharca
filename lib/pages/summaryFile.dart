@@ -1,8 +1,13 @@
+import 'dart:io';
+
 import 'package:acununparasiniharca/util/products.dart';
 import 'package:acununparasiniharca/util/randomGradient.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gradient_text/gradient_text.dart';
+import 'package:line_awesome_icons/line_awesome_icons.dart';
+import 'package:screenshot/screenshot.dart';
+import 'package:social_share/social_share.dart';
 
 
 
@@ -18,7 +23,9 @@ class _SummaryPageState extends State<SummaryPage> {
   List<Products> purchasedList=[];
   ScrollController _scrollController;
   ScrollController _scrollController2;
-
+  ScreenshotController screenshotController = ScreenshotController();
+  File sharingPhoto;
+  bool isSS=true;
   @override
   void initState() {
 
@@ -34,62 +41,92 @@ class _SummaryPageState extends State<SummaryPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      body: SingleChildScrollView(
-        controller: _scrollController,
-        child: Column(
+    return Screenshot(
+      controller: screenshotController,
+      child: Scaffold(
+        floatingActionButton: FloatingActionButton.extended(onPressed: (){
+          setState(() {
+            isSS=false;
+          });
+          screenshotController.capture().then((File image) {
+            //Capture Done
+            setState(() {
+              sharingPhoto = image;
+              isSS=true;
+            });
+            SocialShare.shareInstagramStory(sharingPhoto.path,"#000000","#000000","https://deep-link-url",
+                );
+
+          }).catchError((onError) {
+            print(onError);
+          });
+
+        }, label: Row(
           children: [
-            Container(
-              child: Stack(
-                alignment: AlignmentDirectional.center,
-                children: [
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Container(
-                      width: 160,
-                      height: 160,
-                      decoration: BoxDecoration(
-                          gradient: randomGradient(),
-                          color: Colors.limeAccent,
-                          shape: BoxShape.circle),
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: CircleAvatar(
-                      backgroundImage: AssetImage("assets/acunpp.jpg"),
-                      radius: 70,
-                      backgroundColor: Theme.of(context).accentColor,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 35,),
-            GradientText("ACUNUN PARASIYLA ALDIĞIM ŞEYLER",gradient: randomGradient(),style: GoogleFonts.bangers(color: Colors.white,fontSize: 25),),
-            SizedBox(height: 35,),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 60),
-              child: Container(
-                child: GridView.builder(
-                  controller: _scrollController2,
-                    padding: EdgeInsets.zero,
-                    shrinkWrap: true,
-                    itemCount:
-                    purchasedList.length,
-                    gridDelegate:
-                    SliverGridDelegateWithFixedCrossAxisCount(
-                        childAspectRatio: 3.2,
-                        mainAxisSpacing: 10,
-                        crossAxisSpacing: 5,
-                        crossAxisCount: 2),
-                    itemBuilder: (context, index) {
-                      return badgeMaker(purchasedList[index]);
-                    }),
-              ),
-            ),
+            Icon(LineAwesomeIcons.instagram,),
+            Text(isSS?"İnstagramda paylaş":"@sekspirdev",style: GoogleFonts.bangers(),),
           ],
+        ),
+          backgroundColor: Colors.red,
+
+        ),
+        backgroundColor: Colors.black,
+        body: SingleChildScrollView(
+          controller: _scrollController,
+          child: Column(
+            children: [
+              SizedBox(height: 10,),
+              Container(
+                child: Stack(
+                  alignment: AlignmentDirectional.center,
+                  children: [
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Container(
+                        width: 160,
+                        height: 160,
+                        decoration: BoxDecoration(
+                            gradient: randomGradient(),
+                            color: Colors.limeAccent,
+                            shape: BoxShape.circle),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: CircleAvatar(
+                        backgroundImage: AssetImage("assets/acunpp.jpg"),
+                        radius: 70,
+                        backgroundColor: Theme.of(context).accentColor,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 35,),
+              GradientText("ACUNUN PARASIYLA ALDIĞIM ŞEYLER",gradient: randomGradient(),style: GoogleFonts.bangers(color: Colors.white,fontSize: 25),),
+              SizedBox(height: 35,),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 60),
+                child: Container(
+                  child: GridView.builder(
+                    controller: _scrollController2,
+                      padding: EdgeInsets.zero,
+                      shrinkWrap: true,
+                      itemCount:
+                      purchasedList.length,
+                      gridDelegate:
+                      SliverGridDelegateWithFixedCrossAxisCount(
+                          childAspectRatio: 3.2,
+                          mainAxisSpacing: 10,
+                          crossAxisSpacing: 5,
+                          crossAxisCount: 2),
+                      itemBuilder: (context, index) {
+                        return badgeMaker(purchasedList[index]);
+                      }),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
