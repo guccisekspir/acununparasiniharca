@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:progress_dialog/progress_dialog.dart';
 
 int servet = 3512660320;
 final formatCurrency = new NumberFormat.simpleCurrency();
@@ -24,9 +25,11 @@ class _HomePageState extends State<HomePage> {
   ScrollController _sscrollController = ScrollController();
   Products newProduct = Products(name: "Eben", price: 10);
   List<Products> newProducts = [];
+  ProgressDialog pr;
 
   @override
   void initState() {
+    pr = ProgressDialog(context, isDismissible: false);
     // TODO: implement initState
     RewardedVideoAd.instance.listener =
         (RewardedVideoAdEvent event, {String rewardType, int rewardAmount}) {
@@ -37,15 +40,20 @@ class _HomePageState extends State<HomePage> {
         print(" *************** ODULLU REKLAM ***** ODUL VER");
         odulluReklamLoad();
       } else if (event == RewardedVideoAdEvent.loaded) {
+        pr.hide();
+
         print(
             " *************** ODULLU REKLAM ***** REKLAM yuklendı ve gosterilecek");
         RewardedVideoAd.instance.show();
       } else if (event == RewardedVideoAdEvent.closed) {
+        pr.hide();
         print(" *************** ODULLU REKLAM ***** REKLAM KAPATILDI");
       } else if (event == RewardedVideoAdEvent.failedToLoad) {
+        pr.hide();
         print(" *************** ODULLU REKLAM ***** REKLAM BULUNAMADI");
         odulluReklamLoad();
       } else if (event == RewardedVideoAdEvent.completed) {
+        pr.hide();
         print(" *************** ODULLU REKLAM ***** COMPLETED");
       }
     };
@@ -61,6 +69,12 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+
+    pr.style(
+        backgroundColor: Colors.greenAccent,
+        messageTextStyle: TextStyle(color: Colors.black),
+        message: "İşlem Gerçekleştiriliyor...",
+        borderRadius: 30);
     for (int i = 0; i < productsPrices.length - 1; i++) {
       Products newProducta = Products(
           price: productsPrices[i],
@@ -123,6 +137,45 @@ class _HomePageState extends State<HomePage> {
         controller: _scrollController,
         child: Column(
           children: [
+            Padding(
+              padding: const EdgeInsets.all(5),
+              child: GestureDetector(
+                onTap: () {
+                  RewardedVideoAd.instance.load(
+                      adUnitId: AdMobFunc.rewardID,
+                      targetingInfo: AdMobFunc.targetingInfo);
+                },
+                child: Align(
+                  alignment: Alignment.topRight,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.white.withOpacity(0.1),
+                          offset: Offset(-5.0, -5.0),
+                          blurRadius: 6.0,
+                        ),
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.4),
+                          offset: Offset(5.0, 5.0),
+                          blurRadius: 6.0,
+                        ),
+                      ],
+                      color: Colors.deepPurpleAccent,
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        "Reklamsız->",textAlign: TextAlign.center,
+                        style: GoogleFonts.bangers(
+                            fontSize: MediaQuery.of(context).size.height/30, color: Colors.black),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
             Container(
               child: Stack(
                 alignment: AlignmentDirectional.center,
@@ -185,6 +238,7 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.only(left: 100, right: 100, top: 20),
               child: GestureDetector(
                 onTap: () {
+                  pr.show();
                   RewardedVideoAd.instance.load(
                       adUnitId: AdMobFunc.rewardID,
                       targetingInfo: AdMobFunc.targetingInfo);

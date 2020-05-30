@@ -42,6 +42,7 @@ dependencies:
   animations: ^1.0.0+5
   flare_flutter: ^2.0.3
   flare_splash_screen: ^3.0.1
+  progress_dialog: ^1.2.3
 
 
 dev_dependencies:
