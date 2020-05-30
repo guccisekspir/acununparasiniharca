@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
 
   void odulluReklamLoad() {
     RewardedVideoAd.instance.load(
-        adUnitId: RewardedVideoAd.testAdUnitId,
+        adUnitId: AdMobFunc.rewardID,
         targetingInfo: AdMobFunc.targetingInfo);
   }
 
@@ -186,7 +186,7 @@ class _HomePageState extends State<HomePage> {
               child: GestureDetector(
                 onTap: () {
                   RewardedVideoAd.instance.load(
-                      adUnitId: RewardedVideoAd.testAdUnitId,
+                      adUnitId: AdMobFunc.rewardID,
                       targetingInfo: AdMobFunc.targetingInfo);
                 },
                 child: Container(
