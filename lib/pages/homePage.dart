@@ -137,69 +137,33 @@ class _HomePageState extends State<HomePage> {
         controller: _scrollController,
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(5),
-              child: GestureDetector(
-                onTap: () {
-                  RewardedVideoAd.instance.load(
-                      adUnitId: AdMobFunc.rewardID,
-                      targetingInfo: AdMobFunc.targetingInfo);
-                },
-                child: Align(
-                  alignment: Alignment.topRight,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.white.withOpacity(0.1),
-                          offset: Offset(-5.0, -5.0),
-                          blurRadius: 6.0,
-                        ),
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.4),
-                          offset: Offset(5.0, 5.0),
-                          blurRadius: 6.0,
-                        ),
-                      ],
-                      color: Colors.deepPurpleAccent,
-                      borderRadius: BorderRadius.circular(12.0),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        "Reklamsız->",textAlign: TextAlign.center,
-                        style: GoogleFonts.bangers(
-                            fontSize: MediaQuery.of(context).size.height/30, color: Colors.black),
+            
+            SafeArea(
+              child: Container(
+                child: Stack(
+                  alignment: AlignmentDirectional.center,
+                  children: [
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Container(
+                        width: 160,
+                        height: 160,
+                        decoration: BoxDecoration(
+                            gradient: randomGradient(),
+                            color: Colors.limeAccent,
+                            shape: BoxShape.circle),
                       ),
                     ),
-                  ),
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: CircleAvatar(
+                        backgroundImage: AssetImage("assets/acunpp.jpg"),
+                        radius: 70,
+                        backgroundColor: Theme.of(context).accentColor,
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-            ),
-            Container(
-              child: Stack(
-                alignment: AlignmentDirectional.center,
-                children: [
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Container(
-                      width: 160,
-                      height: 160,
-                      decoration: BoxDecoration(
-                          gradient: randomGradient(),
-                          color: Colors.limeAccent,
-                          shape: BoxShape.circle),
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: CircleAvatar(
-                      backgroundImage: AssetImage("assets/acunpp.jpg"),
-                      radius: 70,
-                      backgroundColor: Theme.of(context).accentColor,
-                    ),
-                  ),
-                ],
               ),
             ),
             SizedBox(
