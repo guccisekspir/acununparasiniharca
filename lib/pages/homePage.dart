@@ -26,6 +26,7 @@ class _HomePageState extends State<HomePage> {
   Products newProduct = Products(name: "Eben", price: 10);
   List<Products> newProducts = [];
   ProgressDialog pr;
+  Color kalanParaColor=Colors.blueAccent;
 
   @override
   void initState() {
@@ -85,7 +86,9 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
+
           FloatingActionButton(
             heroTag: "btn1",
             child: Icon(Icons.restore_from_trash),
@@ -130,6 +133,10 @@ class _HomePageState extends State<HomePage> {
             backgroundColor: Colors.greenAccent,
             elevation: 20,
           ),
+          FloatingActionButton.extended(
+              heroTag: "btn3",
+              backgroundColor: kalanParaColor,
+              onPressed: (){}, label: Text(formatCurrency.format(servet) + " ₺",textAlign: TextAlign.center,style: GoogleFonts.bangers(color: Colors.black,fontWeight: FontWeight.bold),))
         ],
       ),
       backgroundColor: backGroundColor,
