@@ -340,13 +340,12 @@ class _HomePageState extends State<HomePage> {
                             IconButton(
                               onPressed: () {
                                 setState(() {
-                                  if (!(servet + newProducts[index].price >
-                                      3512660325)) {
-                                    if (newProducts[index].piece >= 0) {
+
+                                    if (newProducts[index].piece > 0) {
                                       newProducts[index].minusPiece();
                                       servet += newProducts[index].price;
                                     }
-                                  } else {
+                                   else {
                                     Scaffold.of(context).showSnackBar(SnackBar(
                                       content: Text("Önce Satın Alınız!"),
                                       backgroundColor: Colors.redAccent,
